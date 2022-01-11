@@ -1,5 +1,6 @@
 package task.assign;
 
+import java.util.Arrays;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -197,13 +198,171 @@ public class Assignment1 {
             int year = 0 ;
             year = sc.nextInt();
             if(year>0){
-
+                if ((year % 400 == 0) || ((year % 4 == 0) && (year % 100 != 0))){
+                    System.out.println(year + " is a leap year ");
+                }else{
+                    System.out.println(year + " is not a leap year");
+                }
+            }else{
+                System.out.println("Enter a valid year");
             }
         }catch(InputMismatchException e){
+    System.out.println("Enter only Numeric Input");
+        }
+    }
+/*
+This method takes three integer variables as Input and prints if the numbers are in increasing or decreasing order
 
+ */
+    public void isIncreasingOrDecreasing(){
+        try{
+            int i ,j, k =0;
+            Scanner sc = new Scanner(System.in);
+            System.out.println("Enter 3 Input Numbers");
+            System.out.println("Enter Input 1");
+            i = sc.nextInt();
+            System.out.println("Enter Input 2");
+            j = sc.nextInt();
+            System.out.println("Enter Input 3");
+            k = sc.nextInt();
+            if (j<i && k<j){
+                System.out.println("In Descending Order ");
+            }else if (j>i && k> j){
+                System.out.println("In Ascending Order");
+            }else{
+                System.out.println("Not in Ascending or Descending order");
+            }
+        }catch(InputMismatchException e){
+            System.out.println("Enter only Integers");
         }
     }
 
+    /*
+    This method prints number in right angle shape
+
+     */
+    public void printNoInFormat(){
+        int i,j,n = 0;
+        System.out.print("Input number of rows to print : ");
+        Scanner sc = new Scanner(System.in);
+        n = sc.nextInt();
+
+        for(i=1;i<=n;i++)
+        {
+            for(j=1;j<=i;j++)
+                System.out.print(j);
+
+            System.out.println("");
+        }
+
+    }
+    public void compareFloatValues(){
+        try{
+            Float f1 ,f2;
+            System.out.println("Enter two float values ");
+
+            Scanner sc = new Scanner (System.in);
+            f1= sc.nextFloat();
+            f2 = sc.nextFloat();
+            if(f1 >0 && f2>0){
+             if(Float.compare(f1,f2)==0) {
+                 System.out.println("Both values are equal");
+
+             }  if(Float.compare(f1,f2)<0){
+                 System.out.println("Both values are not Equal");
+
+             }
+            }
+        }catch(InputMismatchException e){
+            System.out.println("Invalid INnput");
+        }
+    }
+ public void removeDeuplicatesFromArr(){
+
+        int  arr[] = {1,2,1,1,4,5};
+        Arrays.sort(arr);
+        int n = arr.length;
+
+     int[] temp = new int[n];
+     System.out.println("temp size ::"+ temp.length);
+     int j = 0;
+     for (int i=0; i<n-1; i++){
+         System.out.println("inside "+i);
+         if (arr[i] != arr[i+1]){
+             System.out.println("Adding Values ::"+ arr[i]);
+             temp[j++] = arr[i];
+         }
+     }
+     temp[j++] = arr[n-1];
+     System.out.println("Temp size now is "+temp.length);
+
+     for (int arrItr=0; arrItr<=j; arrItr++){
+         arr[arrItr] = temp[arrItr];
+     }
+     System.out.println("New Size ::"+ arr.length);
+   for(int k =0;k<temp.length;k++){
+       System.out.println(temp[k]);
+   }
+    }
+
+    public void findSecondLargestNo(){
+        int temp;
+        int a[] = {22,45,67,89,24};
+        for (int i = 0; i < a.length; i++)
+        {
+            for (int j = i + 1; j < a.length; j++)
+            {
+                if (a[i] > a[j])
+                {
+                    temp = a[i];
+                    a[i] = a[j];
+                    a[j] = temp;
+                }
+            }
+        }
+           System.out.println("Second Largest :"+ a[a.length-2]);
+    }
+
+    public void findSecondSmallestNo(){
+        int temp;
+        int a[] = {22,45,67,89,24};
+        for (int i = 0; i < a.length; i++)
+        {
+            for (int j = i + 1; j < a.length; j++)
+            {
+                if (a[i] < a[j])
+                {
+                    temp = a[i];
+                    a[i] = a[j];
+                    a[j] = temp;
+                }
+            }
+        }
+        System.out.println("Second Smallests :"+ a[a.length-2]);
+    }
+public void addMatrix(){
+
+        int a[] []= {{1,2,3},
+                    {2,3,4},
+                    {5,6,7}};
+        int b[][]={{1,2,3},
+                {2,3,4},
+                {5,6,7}};
+
+              int i, j;
+        int c[][] = new int[a.length][a.length];
+
+        for (i = 0; i < a.length; i++) {
+            for (j = 0; j < a.length; j++)
+                c[i][j] = a[i][j] + b[i][j];
+
+    }
+        for (int k =0 ;k< c.length; k++){
+            for(int itr =0;itr<c.length;itr++){
+                System.out.println("new Matrix ::"+c[k][itr]);
+            }
+        }
+}
     public static void main(String args[]) {
         Assignment1 assgn = new Assignment1();
         // assgn.printTables();
@@ -211,7 +370,15 @@ public class Assignment1 {
         // assgn.ComputeNoOfDays();
         // assgn.addNaturalNumbers();
         //assgn.findNoOfDigits();
-        assgn.findNoOfDigits();
+        //assgn.findNoOfDigits();
+        //assgn.findLeapYear();;
+        //assgn.isIncreasingOrDecreasing();
+        //assgn.printNoInFormat();
+      //   assgn.compareFloatValues();
+      //  assgn.removeDeuplicatesFromArr();
+        //assgn.findSecondLargestNo();
+        //assgn.findSecondSmallestNo();
+        assgn.addMatrix();
 
     }
 }
