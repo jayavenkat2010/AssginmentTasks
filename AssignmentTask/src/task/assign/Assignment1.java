@@ -1,3 +1,4 @@
+/*Methods for task3*/
 package task.assign;
 
 import java.util.Arrays;
@@ -277,92 +278,6 @@ This method takes three integer variables as Input and prints if the numbers are
             System.out.println("Invalid INnput");
         }
     }
- public void removeDeuplicatesFromArr(){
-
-        int  arr[] = {1,2,1,1,4,5};
-        Arrays.sort(arr);
-        int n = arr.length;
-
-     int[] temp = new int[n];
-     System.out.println("temp size ::"+ temp.length);
-     int j = 0;
-     for (int i=0; i<n-1; i++){
-         System.out.println("inside "+i);
-         if (arr[i] != arr[i+1]){
-             System.out.println("Adding Values ::"+ arr[i]);
-             temp[j++] = arr[i];
-         }
-     }
-     temp[j++] = arr[n-1];
-     System.out.println("Temp size now is "+temp.length);
-
-     for (int arrItr=0; arrItr<=j; arrItr++){
-         arr[arrItr] = temp[arrItr];
-     }
-     System.out.println("New Size ::"+ arr.length);
-   for(int k =0;k<temp.length;k++){
-       System.out.println(temp[k]);
-   }
-    }
-
-    public void findSecondLargestNo(){
-        int temp;
-        int a[] = {22,45,67,89,24};
-        for (int i = 0; i < a.length; i++)
-        {
-            for (int j = i + 1; j < a.length; j++)
-            {
-                if (a[i] > a[j])
-                {
-                    temp = a[i];
-                    a[i] = a[j];
-                    a[j] = temp;
-                }
-            }
-        }
-           System.out.println("Second Largest :"+ a[a.length-2]);
-    }
-
-    public void findSecondSmallestNo(){
-        int temp;
-        int a[] = {22,45,67,89,24};
-        for (int i = 0; i < a.length; i++)
-        {
-            for (int j = i + 1; j < a.length; j++)
-            {
-                if (a[i] < a[j])
-                {
-                    temp = a[i];
-                    a[i] = a[j];
-                    a[j] = temp;
-                }
-            }
-        }
-        System.out.println("Second Smallests :"+ a[a.length-2]);
-    }
-public void addMatrix(){
-
-        int a[] []= {{1,2,3},
-                    {2,3,4},
-                    {5,6,7}};
-        int b[][]={{1,2,3},
-                {2,3,4},
-                {5,6,7}};
-
-              int i, j;
-        int c[][] = new int[a.length][a.length];
-
-        for (i = 0; i < a.length; i++) {
-            for (j = 0; j < a.length; j++)
-                c[i][j] = a[i][j] + b[i][j];
-
-    }
-        for (int k =0 ;k< c.length; k++){
-            for(int itr =0;itr<c.length;itr++){
-                System.out.println("new Matrix ::"+c[k][itr]);
-            }
-        }
-}
     public static void main(String args[]) {
         Assignment1 assgn = new Assignment1();
         // assgn.printTables();
@@ -378,7 +293,9 @@ public void addMatrix(){
       //  assgn.removeDeuplicatesFromArr();
         //assgn.findSecondLargestNo();
         //assgn.findSecondSmallestNo();
-        assgn.addMatrix();
+        //assgn.addMatrix();
+        //assgn.moveZeroFromArray();
+        //assgn.replaceDuplicate();
 
     }
 }
