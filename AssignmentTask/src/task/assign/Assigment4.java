@@ -155,6 +155,33 @@ public class Assigment4 { public void removeDeuplicatesFromArr(){
         System.out.println("Smallest "+smallestNo+" Largest "+largestNo);
         System.out.println("The Difference is "+diff);;
     }
+
+    public void removeDuplicateElements(){
+       int arraySize = 0;
+       Scanner sc = new Scanner(System.in);
+       int arrInput[]= {1,2,5,3,2,3,4,5,8,7,8};
+       Arrays.sort(arrInput);
+        int[] temp = new int[arrInput.length];
+        int j = 0;
+
+        for (int i = 0; i < arrInput.length-1; i++) {
+            if (arrInput[i] != arrInput[i + 1]) {
+                temp[j++] = arrInput[i];
+            }
+        }
+
+        temp[j++] = arrInput[arrInput.length - 1];
+
+
+        for (int i = 0; i < j; i++) {
+            arrInput[i] = temp[i];
+        }
+        System.out.println("new size of array after removing duplicates ::"+temp.length);
+        for(int k =0; k<temp.length;k++){
+            System.out.println(temp[k]);
+        }
+
+    }
 public static void main(String args[]){
         Assigment4 assign4 = new Assigment4();
     //    assign4.addMatrix();
@@ -163,7 +190,9 @@ public static void main(String args[]){
         //assign4.moveZeroFromArray();
     //assign4.removeDeuplicatesFromArr();
     //assign4.replaceDuplicate();
-    assign4.findDifference();
+    //assign4.findDifference();
+    assign4.removeDuplicateElements();
+    
 
 }
 
