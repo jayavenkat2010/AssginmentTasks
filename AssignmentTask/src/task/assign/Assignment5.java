@@ -140,12 +140,14 @@ if(evenCount!=0 && evenCount==1){
     if(oddCount!=0 && oddCount==1){
         System.out.println("Removing the odd number");
 
-        for(int k=0;k<arrSize;k++){
-            if(arrElements[k]%2==0){
+        for(int k=1;k<=arrElements.length;k++){
+            if(arrElements[k]%2!=0){
                 System.out.println(k);
-                newArr[k] = arrElements[k];
-            }else{
                 System.out.println("Exluding the odd number");
+            }else{
+                System.out.println("here" +k);
+                newArr[k] = arrElements[k];
+
             }
         }
     }
